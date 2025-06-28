@@ -123,10 +123,10 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* -- text column -- */}
             <div className="space-y-8 text-center lg:text-left">
-              <Badge className="inline-flex items-center gap-2 border-0 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 text-blue-800 shadow-lg shadow-blue-500/10">
-                <Award className="h-4 w-4" />
+              <Badge className="inline-flex items-center gap-2 border-0 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 text-blue-800 shadow-lg shadow-blue-500/10 text-[32px] md:text-[40px] lg:text-[50px] font-light">
+                <Award className="h-8 w-8 mr-2" />
                 {!loading && city ? (
-                  <>{city} fönster glänser med Glada Fönsters bästa kvalitet och perfektion</>
+                  <><span className="font-bold">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion</>
                 ) : (
                   "Sveriges Mest Pålitliga Fönsterputsare"
                 )}
