@@ -238,8 +238,7 @@ export default function AboutPage() {
               </span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 mb-8 md:mb-12 font-light leading-relaxed">
-              Kontakta oss idag för en kostnadsfri offert. Vi svarar inom 15 minuter och kan ofta erbjuda service samma
-              dag.
+              Kontakta oss idag för en kostnadsfri offert. Via telefon svarar vi på cirka 5 sekunder, via e-post inom högst 2 timmar, och vi kan också komma för att rengöra dina fönster samma dag.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mb-8 md:mb-12">
