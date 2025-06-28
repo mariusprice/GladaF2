@@ -123,13 +123,17 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* -- text column -- */}
             <div className="space-y-8 text-center lg:text-left">
-              <Badge className="inline-flex items-center gap-2 border-0 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 text-blue-800 shadow-lg shadow-blue-500/10 text-[32px] md:text-[40px] lg:text-[50px] font-light">
-                <Award className="h-8 w-8 mr-2" />
-                {!loading && city ? (
-                  <><span className="font-bold">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion</>
-                ) : (
-                  "Sveriges Mest Pålitliga Fönsterputsare"
-                )}
+              <Badge className="flex items-center justify-center gap-3 border-0 bg-gradient-to-r from-blue-100 to-indigo-100 px-6 py-4 text-blue-800 shadow-lg shadow-blue-500/10 rounded-3xl w-full max-w-3xl mx-auto text-center text-xl md:text-2xl lg:text-4xl font-semibold whitespace-pre-line">
+                <Award className="h-8 w-8 min-w-[2rem] min-h-[2rem] mr-2" />
+                <span>
+                  {!loading && city ? (
+                    <>
+                      <span className="font-bold text-blue-900">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion
+                    </>
+                  ) : (
+                    "Sveriges Mest Pålitliga Fönsterputsare"
+                  )}
+                </span>
               </Badge>
 
               <h1 className="text-2xl font-bold leading-tight md:text-3xl lg:text-5xl">
