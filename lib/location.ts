@@ -87,25 +87,12 @@ export const reverseGeocode = async (latitude: number, longitude: number): Promi
 };
 
 export const getVisitorLocation = async (): Promise<string> => {
-  // Try browser geolocation first (if user permits)
   try {
-    const position = await getLocationFromBrowser();
-    const city = await reverseGeocode(position.latitude, position.longitude);
-    if (city) {
-      const nearestCity = getNearestCity(city);
-      return nearestCity;
-    }
-  } catch (error) {
-    console.log('Browser geolocation failed, falling back to IP geolocation');
-  }
-  
-  // Fallback to IP geolocation
-  try {
-    const userCity = await getVisitorCity();
+    const userCity = await getVisitorCity(); // Only IP-based
     const nearestCity = getNearestCity(userCity);
     return nearestCity;
   } catch (error) {
     console.error('IP geolocation failed:', error);
-    return 'Göteborg'; // Final fallback
+    return 'Göteborg'; // Fallback
   }
 }; 
