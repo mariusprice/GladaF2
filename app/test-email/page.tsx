@@ -15,39 +15,6 @@ export default function TestEmailPage() {
     message: "",
   })
 
-  const gladaFonsterEmailHtml = `
-    <!DOCTYPE html>
-    <html lang="sv">
-    <body>
-      <div style="background: #fff; max-width: 500px; margin: 0 auto; padding: 20px; border-radius: 8px;">
-        <div style="text-align: center; margin-bottom: 20px;">
-          <img src="https://glada-13-14.vercel.app/glada-fonster-kungsbacka-happy.png" alt="Glada Fönster Logo" width="48" height="48" />
-          <h1 style="color: #5045e5; margin: 10px 0;">Glada Fönster Städ AB</h1>
-          <p style="font-style: italic; color: #444;">
-            Vi putsar inte bara fönster – vi förvandlar dem till speglar så klara att du kommer att svära på att du kan se <span style="color: #5045e5;">ABBA</span> sjunga "Dancing Queen" i din trädgård.
-          </p>
-        </div>
-
-        <div style="margin-top: 20px;">
-          <h2 style="color: #5045e5;">Ny offertförfrågan</h2>
-          <div style="background: #f7f7fc; padding: 15px; border-radius: 6px;">
-            <p><strong>Namn:</strong> ${sanitizeInput(firstName)} ${sanitizeInput(lastName)}</p>
-            <p><strong>E-post:</strong> <a href="mailto:${sanitizeInput(email)}">${sanitizeInput(email)}</a></p>
-            <p><strong>Telefon:</strong> <a href="tel:${sanitizeInput(phone)}">${sanitizeInput(phone)}</a></p>
-            ${address ? `<p><strong>Adress:</strong> ${sanitizeInput(address)}</p>` : ''}
-            ${propertyType ? `<p><strong>Fastighetstyp:</strong> ${sanitizeInput(propertyType)}</p>` : ''}
-            ${description ? `<p><strong>Beskrivning:</strong><br>${sanitizeInput(description)}</p>` : ''}
-          </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 20px;">
-          <a href="https://gladafonster.se/" style="color: #5045e5;">https://gladafonster.se/</a>
-        </div>
-      </div>
-    </body>
-    </html>
-  `;
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <Header />
