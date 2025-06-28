@@ -1,15 +1,17 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, Menu, X } from "lucide-react"
+import { Phone, Menu, X, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, forwardRef } from "react"
 import { usePathname } from "next/navigation"
+import { useVisitorLocation } from "@/hooks/useVisitorLocation"
 
 export const Header = forwardRef<HTMLElement, {}>((props, ref) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { city, loading } = useVisitorLocation()
 
   const isActive = (path: string) => pathname === path
 
@@ -35,7 +37,12 @@ export const Header = forwardRef<HTMLElement, {}>((props, ref) => {
                 Glada Fönster Städ AB
               </span>
               <div className="text-xs text-gray-500 font-medium">
-                <br />
+                {!loading && city && (
+                  <div className="flex items-center space-x-1 mt-1">
+                    <MapPin className="h-3 w-3 text-blue-600" />
+                    <span>Dina Fönster {city}</span>
+                  </div>
+                )}
               </div>
             </div>
           </Link>
@@ -112,6 +119,14 @@ export const Header = forwardRef<HTMLElement, {}>((props, ref) => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-white/20">
             <nav className="flex flex-col space-y-4 pt-4">
+              {/* Location Display for Mobile */}
+              {!loading && city && (
+                <div className="flex items-center space-x-2 text-sm text-gray-600 bg-blue-50 px-4 py-3 rounded-lg border border-blue-200">
+                  <MapPin className="h-4 w-4 text-blue-600" />
+                  <span className="font-medium">Dina Fönster {city}</span>
+                </div>
+              )}
+              
               <Link
                 href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
