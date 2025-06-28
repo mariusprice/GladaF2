@@ -6,12 +6,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { OptimizedYouTubeVideo } from "@/components/optimized-youtube-video"
+import { useVisitorLocation } from "@/hooks/useVisitorLocation"
 
 import { ArrowRight, Award, Building, CheckCircle, Home, Phone, Shield, Star, Users, Zap } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export default function HomePage() {
+  const { city, loading } = useVisitorLocation();
+
   /* ---------- service cards ---------- */
   const services = [
     {
@@ -122,7 +125,11 @@ export default function HomePage() {
             <div className="space-y-8 text-center lg:text-left">
               <Badge className="inline-flex items-center gap-2 border-0 bg-gradient-to-r from-blue-100 to-indigo-100 px-4 py-2 text-blue-800 shadow-lg shadow-blue-500/10">
                 <Award className="h-4 w-4" />
-                Sveriges Mest Pålitliga Fönsterputsare
+                {!loading && city ? (
+                  <>{city} fönster glänser med Glada Fönsters bästa kvalitet och perfektion</>
+                ) : (
+                  "Sveriges Mest Pålitliga Fönsterputsare"
+                )}
               </Badge>
 
               <h1 className="text-2xl font-bold leading-tight md:text-3xl lg:text-5xl">
