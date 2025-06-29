@@ -112,6 +112,22 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <Header />
 
+      {/* ─────────────────────  CENTERED BADGE  ───────────────────── */}
+      <section className="w-full flex justify-center mt-6 mb-2">
+        <Badge style={{ fontSize: '40px', fontWeight: 900, lineHeight: '46px' }} className="flex items-center justify-center gap-3 border-0 bg-transparent hover:bg-transparent group-hover:bg-transparent px-8 py-6 text-blue-900 rounded-3xl w-full max-w-2xl mx-auto text-center whitespace-pre-line shadow-none">
+          <Award className="h-8 w-8 min-w-[2rem] min-h-[2rem] mr-2" />
+          <span>
+            {!loading && city ? (
+              <>
+                <span className="font-bold text-blue-900">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion
+              </>
+            ) : (
+              "Göteborg fönster glänser med Glada Fönsters bästa kvalitet och perfektion"
+            )}
+          </span>
+        </Badge>
+      </section>
+
       {/* ─────────────────────  HERO  ───────────────────── */}
       <section className="relative overflow-hidden py-12 md:py-20 lg:py-32">
         {/* subtle gradient blobs */}
@@ -123,25 +139,12 @@ export default function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* -- text column -- */}
             <div className="space-y-8 text-center lg:text-left">
-              <Badge className="flex items-center justify-center gap-3 border-0 bg-gradient-to-r from-blue-100 to-indigo-100 px-6 py-4 text-blue-800 shadow-lg shadow-blue-500/10 rounded-3xl w-full max-w-3xl mx-auto text-center text-xl md:text-2xl lg:text-4xl font-semibold whitespace-pre-line">
-                <Award className="h-8 w-8 min-w-[2rem] min-h-[2rem] mr-2" />
+              <h1 style={{ fontSize: '36px', fontWeight: 700, lineHeight: '36px' }} className="font-bold leading-tight text-blue-900">
                 <span>
-                  {!loading && city ? (
-                    <>
-                      <span className="font-bold text-blue-900">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion
-                    </>
-                  ) : (
-                    "Sveriges Mest Pålitliga Fönsterputsare"
-                  )}
-                </span>
-              </Badge>
-
-              <h1 className="text-2xl font-bold leading-tight md:text-3xl lg:text-5xl">
-                <span className="bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent">
                   Dina Fönster:
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                <span>
                   Så Rena att du Kommer Undra
                 </span>
                 <br />

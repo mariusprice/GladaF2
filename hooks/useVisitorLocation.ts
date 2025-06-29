@@ -17,8 +17,9 @@ export const useVisitorLocation = () => {
         setCity(detectedCity);
       } catch (err) {
         console.error('Error detecting location:', err);
-        setError('Kunde inte hitta din plats');
-        setCity('Göteborg'); // Fallback
+        // Set a fallback city instead of showing an error to the user
+        setCity('Göteborg');
+        setError(null); // Don't show error to user for location detection
       } finally {
         setLoading(false);
       }
