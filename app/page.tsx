@@ -119,10 +119,10 @@ export default function HomePage() {
           <span>
             {!loading && city ? (
               <>
-                <span className="font-bold text-blue-900">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion
+                <span className="font-bold text-blue-900">{city}</span> fönster glänser med Glada Fönsters bästa kvalitet och perfektion [TEST-VISIBLE-NEW-2024]
               </>
             ) : (
-              "Göteborg fönster glänser med Glada Fönsters bästa kvalitet och perfektion"
+              "Göteborg fönster glänser med Glada Fönsters bästa kvalitet och perfektion [TEST-VISIBLE-NEW-2024]"
             )}
           </span>
         </Badge>
